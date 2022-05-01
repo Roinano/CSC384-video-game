@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : Enemy
 {
@@ -33,15 +34,18 @@ public class Boss : Enemy
     public bool toLocation3to4 = false;
     public bool atLocation3 = false;
     public bool rotating = false;
+
+    public Animator animator;
+    public SpriteRenderer fire;
     private BossHPbar bhp;
     // Start is called before the first frame update
     void Start()
     {
         bhp = GameObject.FindGameObjectWithTag("BossHPbar").GetComponent<BossHPbar>();
         toLocation1 = true;
-        health = 1000;
+        health = 3000;
         score = 100000;
-        attackCharge = 5;
+        attackCharge = 2;
         ChangeState(new BossStateOne());
         FillList();
         DisableLaser();
@@ -101,6 +105,7 @@ public class Boss : Enemy
             }
         }
         bhp.SetValue(health);
+        HurtCountDown();
     }
 
 
@@ -221,14 +226,27 @@ public class Boss : Enemy
 
 
     public override void Movement() {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void Shooting() {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void Initialize() {
-        throw new System.NotImplementedException();
+        
+    }
+
+    public override void DeadAnimation() {
+        StartCoroutine(Dead(SceneManager.GetActiveScene().buildIndex + 1));
+        
+    }
+
+    IEnumerator Dead(int sceneLevel) {
+        fire.enabled = false;
+        Battle.bossDead = true;
+        animator.SetTrigger("boss_dead");
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(2);
     }
 }

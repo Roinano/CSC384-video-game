@@ -5,9 +5,13 @@ using UnityEngine;
 public class ShootFaster : Item {
 
     public override void PerformAction() {
-        player.level++;
-        if (player.level == 1) {
+        player.shoot++;
+        if (player.shoot == 1) {
             StateData.fireFrequency *= 0.5f;
+        } else if (player.shoot == 2) {
+            StateData.fireFrequency *= 0.3f;
+        } else if (player.shoot >= 3) {
+            ScoreCounter.score += 500;
         }
     }
 

@@ -8,9 +8,11 @@ public static class Battle{
     public static float spawnTimeCD;
 
     public static bool enemyMissed = false;
-    public static int enemyDestroyed;
+    public static float enemyDestroyed;
+    public static float streak;
     public static bool dead = false;
     public static bool chargable = false;
     public static bool blastMode = false;
     public static bool boss = false;
+    public static bool bossDead = false;
 }

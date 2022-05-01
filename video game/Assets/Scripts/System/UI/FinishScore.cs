@@ -50,13 +50,13 @@ public class FinishScore : MonoBehaviour
     }
 
     public void CheckAchievements() {
-        if (Battle.enemyDestroyed >= 5) {
+        if (DataPassingController.playScore >= 30000) {
             AchievementsManager.AddAchievement(DataPassingController.playerName, "Ace");
         }
-        if (DataPassingController.playScore >= 100) {
+        if (Battle.bossDead) {
             AchievementsManager.AddAchievement(DataPassingController.playerName, "Terminator");
         }
-        if (!Battle.enemyMissed && !Battle.dead) {
+        if (Battle.bossDead && !Battle.dead) {
             AchievementsManager.AddAchievement(DataPassingController.playerName, "BeyondTheLight");
         }
     }

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour {
     protected float health;
-    protected int score;
+    protected float score;
     protected int attackCharge = 0;
 
     private bool destroyable;
     private EnergyBar eb;
     private float laserTimer = 0;
+    private float hurtVoiceTimer = 0;
+    private bool se = true;
 
     void Start() {
         destroyable = false;
@@ -19,6 +21,7 @@ public abstract class Enemy : MonoBehaviour {
     void Update() {
         Movement();
         Shooting();
+        HurtCountDown();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -26,20 +29,28 @@ public abstract class Enemy : MonoBehaviour {
             health--;
         }
         eb = GameObject.FindGameObjectWithTag("EnergyBar").GetComponent<EnergyBar>();
-        eb.AddEnergy(attackCharge);
+        if (Battle.chargable) {
+            if (se) {
+                eb.AddEnergy(attackCharge);
+            }
+        }
         if (health <= 0) {
             if (other.tag == "PlayerBullet") {
-                ScoreCounter.score += this.score;
+                ScoreCounter.score += (int)(this.score * Battle.streak);
             }
             if (Battle.chargable) {
                 eb.AddEnergy(25);
             }
             Battle.enemyDestroyed++;
             print(Battle.enemyDestroyed);
+            DeadAnimation();
             BattleSoundManager.playSound("ed");
-            Destroy(gameObject);
+            
         } else {
-            BattleSoundManager.playSound("eh");
+            if (se) {
+                BattleSoundManager.playSound("eh");
+                se = false;
+            }
         }
     }
 
@@ -54,6 +65,14 @@ public abstract class Enemy : MonoBehaviour {
         }
     }
 
+    public void HurtCountDown() {
+        hurtVoiceTimer -= Time.deltaTime;
+        if (hurtVoiceTimer <= 0) {
+            se = true;
+            hurtVoiceTimer = 0.1f;
+        }
+    }
+
     public void TakeLaserDamage() {
         laserTimer -= Time.deltaTime;
         if (laserTimer <= 0) {
@@ -61,13 +80,17 @@ public abstract class Enemy : MonoBehaviour {
             laserTimer = 0.05f;
 
             if (health <= 0) {
-                ScoreCounter.score += this.score;
+                ScoreCounter.score += (int)(this.score * Battle.streak);
 
                 Battle.enemyDestroyed++;
+                print(Battle.enemyDestroyed);
+                DeadAnimation();
                 BattleSoundManager.playSound("ed");
-                Destroy(gameObject);
             } else {
-                BattleSoundManager.playSound("eh");
+                if (se) {
+                    BattleSoundManager.playSound("eh");
+                    se = false;
+                }
             }
         }
     }
@@ -75,4 +98,5 @@ public abstract class Enemy : MonoBehaviour {
     public abstract void Movement();
     public abstract void Shooting();
     public abstract void Initialize();
+    public abstract void DeadAnimation();
 }

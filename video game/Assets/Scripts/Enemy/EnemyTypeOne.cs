@@ -30,4 +30,8 @@ public class EnemyTypeOne : Enemy {
         health = 1;
         score = 100;
     }
+
+    public override void DeadAnimation() {
+        Destroy(gameObject);
+    }
 }

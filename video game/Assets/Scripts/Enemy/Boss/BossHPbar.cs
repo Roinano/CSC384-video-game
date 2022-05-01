@@ -15,8 +15,8 @@ public class BossHPbar : MonoBehaviour {
     }
 
     public void ResetBar() {
-        slider.value = 1000;
-        slider.maxValue = 1000;
+        slider.value = 3000;
+        slider.maxValue = 3000;
         gradient.Evaluate(1f);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleSoundManager : MonoBehaviour
 {
-    public static AudioClip playerShoot, playerDead, enemyDead, enemyHurt;
+    public static AudioClip playerShoot, playerDead, enemyDead, enemyHurt, powerUp;
     static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,7 @@ public class BattleSoundManager : MonoBehaviour
         playerDead = Resources.Load<AudioClip>("PlayerDead");
         enemyHurt = Resources.Load<AudioClip>("EnemyHurt");
         enemyDead = Resources.Load<AudioClip>("EnemyDead");
+        powerUp = Resources.Load<AudioClip>("PowerUp");
 
         audioSrc = GetComponent<AudioSource>();
         
@@ -33,6 +34,9 @@ public class BattleSoundManager : MonoBehaviour
             case "eh":
                 audioSrc.volume /= 2;
                 audioSrc.PlayOneShot(enemyHurt);
+                break;
+            case "pu":
+                audioSrc.PlayOneShot(powerUp);
                 break;
         }
     }

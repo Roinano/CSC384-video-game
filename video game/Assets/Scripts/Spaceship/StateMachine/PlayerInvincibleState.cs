@@ -16,7 +16,7 @@ public class PlayerInvincibleState : PlayerState
     }
 
     public void Invincible(PlayerStateController player) {
-        if (StateData.invincibleTime <= 0 && !Battle.blastMode) {
+        if (StateData.invincibleTime <= 0 && !StateData.blastInvincible) {
             player.animator.SetBool("Invincible", false);
             player.gameObject.layer = 6;
             StateData.invincible = false;

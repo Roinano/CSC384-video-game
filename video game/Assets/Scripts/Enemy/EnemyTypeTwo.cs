@@ -41,7 +41,11 @@ public class EnemyTypeTwo : Enemy {
 
     public override void Initialize() {
         health = 3;
-        score = 100;
+        score = 500;
         changePoint = Random.Range(0, 2);
+    }
+
+    public override void DeadAnimation() {
+        Destroy(gameObject);
     }
 }

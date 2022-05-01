@@ -23,9 +23,9 @@ public class Achievements
     }
 
     public void AchievementCondition() {
-        this.aceCondition = "Destroyed 10 opponents in one game";
-        this.terminatorCondition = "Gained more than 1000 score in one game";
-        this.beyondTheLightCondition = "Destroyed all opponents and did not die in one game";
+        this.aceCondition = "Gained more than 30000 score in one game";
+        this.terminatorCondition = "Defeated a boss";
+        this.beyondTheLightCondition = "Defeated a boss and did not die in one game";
     }
 
     public void AddPlayer(string name) {

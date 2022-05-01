@@ -9955,9 +9955,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mySpeed: 0
-  level: 0
+  shoot: 0
+  shootMode: 0
   MainCamera: {fileID: 0}
   bullet: {fileID: 10544915497925980, guid: 825e7ab822e3a544d9b3a317fa0d1650, type: 3}
+  bullet2: {fileID: 1280016425430199613, guid: a438fce3e765c6f4690842d59d045597, type: 3}
+  bullet3: {fileID: 7852434972865772270, guid: 084048fc2f028b04fa25d074c0d71748, type: 3}
   animator: {fileID: 714444407256109301}
   fire: {fileID: 8137719426420745328}
   explode: {fileID: 0}

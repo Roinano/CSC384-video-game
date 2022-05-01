@@ -30,7 +30,7 @@ public abstract class Spawner : MonoBehaviour
     }
 
     void Update() {
-        if (Battle.enemyDestroyed >= 5 && Battle.boss) {
+        if (Battle.enemyDestroyed >= 50 && Battle.boss) {
             
             Destroy(gameObject);
         }
