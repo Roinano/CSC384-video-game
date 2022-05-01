@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - PowerUp
+  - PlayerBullet
+  - EnergyBar
+  - BossHPbar
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Spaceship
+  - Invincible
+  - Enemy
+  - PlayerShooting
+  - EnemyShooting
+  - Background
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3300089389
+    locked: 0
+  - name: Space
+    uniqueID: 3460964405
+    locked: 0
+  - name: UI
+    uniqueID: 2176447531
+    locked: 0
