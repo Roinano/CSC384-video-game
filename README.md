@@ -1,1 +1,1 @@
-# CSC372-video-game
+# CSC384-video-game
