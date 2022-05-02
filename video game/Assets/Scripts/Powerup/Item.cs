@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
-{
+public abstract class Item : MonoBehaviour {
     protected PlayerStateController player;
-
-    void Start() {
-        
-    }
+    protected GameObject powerUp;
 
     void Update() {
         transform.position -= new Vector3(0,1,0) * 2f * Time.deltaTime;
@@ -24,9 +20,6 @@ public abstract class Item : MonoBehaviour
     void OnBecameInvisible() {
         Destroy(gameObject);
     }
-
-    protected GameObject powerUp;
-    // Update is called once per frame
 
     public abstract void PerformAction();
 }

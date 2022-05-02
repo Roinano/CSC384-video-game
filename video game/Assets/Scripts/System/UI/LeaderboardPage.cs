@@ -1,27 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LeaderboardPage : MonoBehaviour
-{
+public class LeaderboardPage : MonoBehaviour {
     private int numOfRank = 10;
 
     private Text[] nameTexts;
     private Text[] scoreTexts;
     private Text[] rankTexts;
 
-    // Start is called before the first frame update
-
-    private void Awake() {
+    void Awake() {
         RefreshBoard();
     }
 
-    void Start()
-    {
+    void Start() {
         LeaderboardManager.GenerateLeaderboard();
-
-
         RefreshBoard();
     }
 

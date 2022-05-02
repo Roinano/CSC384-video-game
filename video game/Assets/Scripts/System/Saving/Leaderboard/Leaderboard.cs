@@ -1,11 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 [Serializable]
-public class Leaderboard
-{
+public class Leaderboard {
     public int[] best10Score;
     public string[] best10Name;
     public int[] sortedScore;

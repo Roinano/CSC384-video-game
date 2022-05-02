@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Boss : Enemy
-{
-
+public class Boss : Enemy {
     private BossState currentState;
     private BossState readyState;
     private bool doingState = true;
@@ -40,8 +38,7 @@ public class Boss : Enemy
     public SpriteRenderer explode;
     private BossHPbar bhp;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         bhp = GameObject.FindGameObjectWithTag("BossHPbar").GetComponent<BossHPbar>();
         toLocation1 = true;
         explode.enabled = false;
@@ -243,7 +240,6 @@ public class Boss : Enemy
 
     public override void DeadAnimation() {
         StartCoroutine(Dead(SceneManager.GetActiveScene().buildIndex + 1));
-        
     }
 
     IEnumerator Dead(int sceneLevel) {

@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInvincibleState : PlayerState
-{
+public class PlayerInvincibleState : PlayerState {
+
     public PlayerState DoState(PlayerStateController player) {
         if (!StateData.dead) {
             player.Controller();

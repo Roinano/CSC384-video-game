@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class DropDownHandler : MonoBehaviour
-{
+public class DropDownHandler : MonoBehaviour {
     public Text NameBox;
     public Text ScoreBox;
     public Text CountPlayer;
@@ -15,17 +13,12 @@ public class DropDownHandler : MonoBehaviour
     public Text warning;
     public Button db;
 
-    private void Awake() {
+    void Awake() {
         dropdown = transform.GetComponent<Dropdown>();
-        
         initialList();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-
+    void Start() {
         DropdownItemSelected(dropdown.value);
         dropdown.onValueChanged.AddListener(delegate {
             DropdownItemSelected(dropdown.value);
@@ -46,7 +39,6 @@ public class DropDownHandler : MonoBehaviour
             NameBox.text = nameSelected;
             ScoreBox.text = "" + scoreSelected;
         }
-        
     }
 
     public void playGame() {

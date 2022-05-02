@@ -1,14 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public static class AchievementsManager
-{
+public static class AchievementsManager {
     public static Achievements achm;
 
     public static void GenerateAchievements() {

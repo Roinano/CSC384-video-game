@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateController : MonoBehaviour
-{
-
+public class PlayerStateController : MonoBehaviour {
     private PlayerState currentState;
 
     [SerializeField] private float mySpeed;
@@ -24,9 +21,6 @@ public class PlayerStateController : MonoBehaviour
     public EnergyBar eb;
     private bool releaseEnergy;
 
-    //Add states here
-    //public ???State var = new ???State();
-
     public Transform laserFirePoint;
     public LineRenderer lineRenderer;
     public GameObject startVFX;
@@ -40,15 +34,10 @@ public class PlayerStateController : MonoBehaviour
 
     void Start() {
         InitializeVar();
-        
-
-        //m_transform = GetComponent<Transform>();
         FillList();
         DisableLaser();
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentState = currentState.DoState(this);
@@ -71,8 +60,6 @@ public class PlayerStateController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && timer <= 0) {
             timer = StateData.fireFrequency;
             ShootMode(shootMode);
-            //Vector3 centre = transform.rotation * new Vector3(0.14f, 0.5f, 0);
-            //Instantiate(bullet, transform.position + centre, transform.rotation);
             BattleSoundManager.playSound("ps");
         }
 
@@ -102,7 +89,6 @@ public class PlayerStateController : MonoBehaviour
     public void BlastMode() {
         if (releaseEnergy) {
             eb.Decay();
-            //Battle.blastMode = true;
             if (Battle.blastMode) {
                 ShootLaser();
             }
@@ -134,8 +120,6 @@ public class PlayerStateController : MonoBehaviour
     }
 
     public void ShootLaser() {
-        
-        //Vector2 direction = (Vector2)transform.position;
         RaycastHit2D hit = Physics2D.Raycast(laserFirePoint.position, laserFirePoint.up);
         RaycastHit2D[] hits = Physics2D.RaycastAll(laserFirePoint.position, laserFirePoint.up);
         startVFX.transform.position = new Vector3(transform.position.x, transform.position.y +1f, 0);

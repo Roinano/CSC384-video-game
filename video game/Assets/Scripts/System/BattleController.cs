@@ -1,21 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class BattleController : MonoBehaviour
-{
+public class BattleController : MonoBehaviour {
     public Text numLifes;
     private EnergyBar eb;
     private BossHPbar bhp;
     private bool streakUp;
     private bool done;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //PlayerPrefs.SetFloat("Lifes", 3f);
-        //PlayerPrefs.SetFloat("Energy", 0f);
+
+    void Start() {
         Battle.lifes = 5f;
         Battle.energy = 0f;
         Battle.spawnTimeCD = 2.5f;
@@ -44,17 +37,13 @@ public class BattleController : MonoBehaviour
         }
         
         if (streakUp) {
-            print(Battle.streak);
             Battle.streak += 0.1f;
             streakUp = false;
             done = true;
         }
-        //numLifes.text = "x " + PlayerPrefs.GetFloat("Lifes");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         UpdateLife();
     }
 }

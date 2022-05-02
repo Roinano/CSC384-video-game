@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PlayerNormalState : PlayerState
-{
+public class PlayerNormalState : PlayerState {
 
     public PlayerState DoState(PlayerStateController player) {
         if (StateData.dead) {

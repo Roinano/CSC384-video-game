@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Spawner : MonoBehaviour
-{
-
+public abstract class Spawner : MonoBehaviour {
     protected float hspeed;
     protected float vspeed;
     protected string mode;
@@ -20,21 +17,18 @@ public abstract class Spawner : MonoBehaviour
             enemy.GetComponent<EnemyTypeTwo>().vspeed = vspeed;
             enemy.GetComponent<EnemyTypeTwo>().hspeed = hspeed;
         }
-        //KnowTheType();
+
         if (mode == "side") {
             StartCoroutine(SpawnEnemyHorizontal(Random.Range(3f, 4.5f)));
         } else if (mode == "up") {
             StartCoroutine(SpawnEnemyVertical(Random.Range(4f, 6f)));
         }
-        
     }
 
     void Update() {
         if (Battle.enemyDestroyed >= 50 && Battle.boss) {
-            
             Destroy(gameObject);
         }
-        
     }
 
     IEnumerator SpawnEnemyHorizontal(float interval) {
@@ -50,5 +44,4 @@ public abstract class Spawner : MonoBehaviour
     }
 
     public abstract void Initialize();
-    //public abstract void DestroySpawner();
 }

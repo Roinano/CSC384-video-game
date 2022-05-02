@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FinishScore : MonoBehaviour
-{
+public class FinishScore : MonoBehaviour {
     public Text scoreText;
     public Text highScoreText;
     public Text renewText;
@@ -12,9 +9,8 @@ public class FinishScore : MonoBehaviour
     public bool visible;
     public float blinkingFreq = 0.2f;
     public float timer = 0f;
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    void Start() {
         scoreText.text = "Score: " + DataPassingController.playScore;
         LeaderboardManager.Save(DataPassingController.playScore, DataPassingController.playerName);
         if (DataPassingController.playScore > DataPassingController.playerHighestScore) {
@@ -30,9 +26,7 @@ public class FinishScore : MonoBehaviour
         CheckAchievements();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (blink) {
             timer -= Time.deltaTime;
             if (timer <= 0) {

@@ -6,7 +6,6 @@ public class EnemyBulletTypeOne : MonoBehaviour {
     private float maxSpeed = 6f;
     private float decayTime = 10f;
 
-    // Update is called once per frame
     void Update() {
         Vector3 position = transform.position;
         transform.rotation = Quaternion.Euler(Vector3.forward * 180);

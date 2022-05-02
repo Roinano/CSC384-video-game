@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleSoundManager : MonoBehaviour
-{
+public class BattleSoundManager : MonoBehaviour {
     public static AudioClip playerShoot, playerDead, enemyDead, enemyHurt, powerUp;
-    static AudioSource audioSrc;
-    // Start is called before the first frame update
-    void Start()
-    {
+    private static AudioSource audioSrc;
+
+    void Start() {
         playerShoot = Resources.Load<AudioClip>("PlayerShoot");
         playerDead = Resources.Load<AudioClip>("PlayerDead");
         enemyHurt = Resources.Load<AudioClip>("EnemyHurt");

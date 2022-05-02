@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossStateThree : BossState {
     private int counter;
     private float rand;
+
     public BossState DoState(Boss bossState) {
         bossState.EnableLaser();
         counter = 0;

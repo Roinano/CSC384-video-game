@@ -1,22 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBulletTypeTwo : MonoBehaviour
-{
+public class EnemyBulletTypeTwo : MonoBehaviour {
     private float maxSpeed = 7f;
     private float decayTime = 10f;
-    private float traceTime = 2f;
-    private float rotation;
-    private PlayerStateController player;
 
-
-    void Start() {
-        
-
-    }
-
-    // Update is called once per frame
     void Update() {
         Vector3 position = transform.position;
         transform.rotation = Quaternion.Euler(Vector3.forward * -225);

@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerDeadState : PlayerState {
+
     public PlayerState DoState(PlayerStateController player) {
         StateData.dead = true;
         if (!StateData.deadCalled) {

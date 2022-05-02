@@ -14,5 +14,4 @@ public class ShootFaster : Item {
             ScoreCounter.score += 500;
         }
     }
-
 }

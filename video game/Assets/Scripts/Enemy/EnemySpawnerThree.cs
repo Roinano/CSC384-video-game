@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawnerThree : Spawner {
     public GameObject enemyType;
 
-
     public override void Initialize() {
         float rand = Random.Range(-1, 1);
         if (rand >= 0) {

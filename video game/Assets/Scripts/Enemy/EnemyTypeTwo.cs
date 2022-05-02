@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyTypeTwo : Enemy {
-    
     public float vspeed = 0;
     public float hspeed = 0;
     public GameObject bullet1;
@@ -29,13 +26,11 @@ public class EnemyTypeTwo : Enemy {
             timer = fireFrequency;
             Vector3 centre = transform.rotation * new Vector3(0, -0.5f, 0);
             float rand = Random.Range(1, 3);
-            print(rand);
             if (rand >= 2) {
                 Instantiate(bullet1, transform.position + centre, transform.rotation);
             } else {
                 Instantiate(bullet2, transform.position + centre, transform.rotation);
             }
-            
         }
     }
 

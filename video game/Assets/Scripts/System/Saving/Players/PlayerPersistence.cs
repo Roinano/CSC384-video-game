@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -21,7 +17,6 @@ public static class PlayerPersistence {
                 file.Close();
             }
         }
-        Debug.Log("Created");
     }
 
     public static void CreateProfile(string pn) {

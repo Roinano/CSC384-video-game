@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 [System.Serializable]
-public class Achievements
-{
+public class Achievements {
     public string[] playerNames;
     public bool[] ace;
     public bool[] terminator;

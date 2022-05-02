@@ -1,15 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossStateTwo : BossState {
     private int counter;
+
     public BossState DoState(Boss bossState) {
         counter = 0;
-        
         bossState.StartCoroutine(LoopBullet(bossState));
         return null;
-        //return new BossStateOne();
     }
 
     IEnumerator LoopBullet(Boss boss) {

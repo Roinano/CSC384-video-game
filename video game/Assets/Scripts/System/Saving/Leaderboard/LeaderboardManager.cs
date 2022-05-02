@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public static class LeaderboardManager
-{
-
+public static class LeaderboardManager {
     private static Leaderboard lb;
 
     public static void GenerateLeaderboard() {
@@ -55,5 +51,4 @@ public static class LeaderboardManager
         lb.Remove(pn);
         SaveBoard(lb);
     }
-
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour {
@@ -42,10 +40,8 @@ public abstract class Enemy : MonoBehaviour {
                 eb.AddEnergy(5);
             }
             Battle.enemyDestroyed++;
-            print(Battle.enemyDestroyed);
             DeadAnimation();
             BattleSoundManager.playSound("ed");
-            
         } else {
             if (se) {
                 BattleSoundManager.playSound("eh");
@@ -78,10 +74,8 @@ public abstract class Enemy : MonoBehaviour {
         if (laserTimer <= 0) {
             health --;
             laserTimer = 0.05f;
-
             if (health <= 0) {
                 ScoreCounter.score += (int)(this.score * Battle.streak);
-
                 Battle.enemyDestroyed++;
                 print(Battle.enemyDestroyed);
                 DeadAnimation();

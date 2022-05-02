@@ -7,7 +7,6 @@ public class BossBulletThree : MonoBehaviour {
     private float decayTime = 20f;
     public float rotation;
 
-    // Update is called once per frame
     void Update() {
         Vector3 position = transform.position;
         transform.rotation = Quaternion.Euler(Vector3.forward * rotation);

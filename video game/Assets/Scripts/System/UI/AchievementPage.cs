@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AchievementPage : MonoBehaviour
-{
+public class AchievementPage : MonoBehaviour {
     public Text nameBox;
     public Dropdown dropdown;
     private string nameSelected;
@@ -21,7 +19,7 @@ public class AchievementPage : MonoBehaviour
 
     private Achievement achievement;
 
-    private void Awake() {
+    void Awake() {
         dropdown = transform.GetComponent<Dropdown>();
 
         initialList();
@@ -67,7 +65,6 @@ public class AchievementPage : MonoBehaviour
                 trophy3.GetComponent<Image>().sprite = normalTrophy;
             }
         }
-
     }
 
     public void initialList() {

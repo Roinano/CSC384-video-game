@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyTypeOne : Enemy {
-    
     public float vspeed = 0;
     public float hspeed = 0;
     public GameObject bullet;
@@ -13,7 +12,6 @@ public class EnemyTypeOne : Enemy {
     public override void Movement() {
         Vector3 move = new Vector3(hspeed, vspeed, 0);
         transform.Translate(move * Time.deltaTime);
-        
     }
 
     public override void Shooting() {

@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchMenuButtonControl : MonoBehaviour
-{
+public class SwitchMenuButtonControl : MonoBehaviour {
     public GameObject selectMenu;
     public GameObject createMenu;
     public GameObject deleteMenu;
@@ -14,9 +11,6 @@ public class SwitchMenuButtonControl : MonoBehaviour
     public GameObject trophyDetail;
     public GameObject howToPlay;
 
-    private void Start() {
-        print(Application.persistentDataPath);
-    }
     public void select_back() {
         selectMenu.SetActive(false);
         mainMenu.SetActive(true);

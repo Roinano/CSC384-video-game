@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpSpawner : MonoBehaviour
-{
-
+public class PowerUpSpawner : MonoBehaviour {
     public GameObject item1;
     public GameObject item2;
     public GameObject item3;

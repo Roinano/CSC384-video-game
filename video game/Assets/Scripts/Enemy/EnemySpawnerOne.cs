@@ -5,8 +5,6 @@ using UnityEngine;
 public class EnemySpawnerOne : Spawner {
     public GameObject enemyType;
 
-
-
     public override void Initialize() {
         hspeed = 3;
         vspeed = 0;
