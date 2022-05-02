@@ -16,6 +16,7 @@ public class BattleController : MonoBehaviour {
         Battle.enemyDestroyed = 0;
         Battle.dead = false;
         Battle.bossDead = false;
+        Battle.boss = false;
         Battle.streak = 1;
 
         streakUp = false;

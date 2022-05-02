@@ -60,7 +60,7 @@ public class Achievements {
     public void RemovePlayer(string name) {
         for (int i = 0; i < playerNames.Length; i++) {
             if (playerNames[i] == name) {
-                playerNames[i] = null;
+                playerNames[i] = "";
                 InitializeAchievements(i);
                 break;
             }

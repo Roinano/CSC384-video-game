@@ -21,11 +21,7 @@ public class AchievementPage : MonoBehaviour {
 
     void Awake() {
         dropdown = transform.GetComponent<Dropdown>();
-
         initialList();
-        foreach (var name in AchievementsManager.Load().playerNames) {
-            print(name);
-        }
     }
 
     void Start() {
@@ -46,7 +42,6 @@ public class AchievementPage : MonoBehaviour {
         } else {
             nameBox.text = nameSelected;
             achievement = AchievementsManager.Load().GetAchievement(nameSelected);
-            print(achievement.ace);
             if (achievement.ace) {
                 trophy1.GetComponent<Image>().sprite = goldTrophy;
             } else {
