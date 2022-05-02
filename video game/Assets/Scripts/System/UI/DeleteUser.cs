@@ -5,7 +5,6 @@ public class DeleteUser : MonoBehaviour {
     public Text playerName;
 
     public void Selected() {
-        print(DataPassingController.playerName);
         playerName.GetComponent<Text>().text = DataPassingController.playerName + "?";
     }
 

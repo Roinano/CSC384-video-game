@@ -11,6 +11,7 @@ public class CreateProf : MonoBehaviour {
         warningText.GetComponent<Text>().text = "";
         PlayerPersistence.GenerateSlots();
         string name = textField.text;
+        name = name.ToLower();
         if (name.Length > 20) {
             warningText.GetComponent<Text>().text = "Name too long!!";
         } else if (name == "") {
@@ -23,10 +24,6 @@ public class CreateProf : MonoBehaviour {
             } else {
                 warningText.GetComponent<Text>().text = "The name is not available or the space is full.";
             }
-        }
-        
-        foreach (var prof in PlayerPersistence.GetAllProfiles()) {
-            print(prof.name);
         }
     }
 

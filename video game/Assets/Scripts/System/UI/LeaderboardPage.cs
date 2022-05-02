@@ -9,11 +9,11 @@ public class LeaderboardPage : MonoBehaviour {
     private Text[] rankTexts;
 
     void Awake() {
+        LeaderboardManager.GenerateLeaderboard();
         RefreshBoard();
     }
 
-    void Start() {
-        LeaderboardManager.GenerateLeaderboard();
+    void Update() {
         RefreshBoard();
     }
 

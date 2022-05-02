@@ -9733,9 +9733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5462108896976375232}
   - component: {fileID: 5462108896976375233}
-  - component: {fileID: 5462108896976375263}
   - component: {fileID: 5462108896976375261}
-  - component: {fileID: 5462108896976375260}
   - component: {fileID: 5462108896976375259}
   - component: {fileID: 714444407256109301}
   - component: {fileID: -5067977452986935958}
@@ -9816,25 +9814,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5462108896976375263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5462108896976375234}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f98550efc78786459070ae3e11e5735, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myForward: {fileID: 0}
-  mySpeed: 5
-  MainCamera: {fileID: 0}
-  bullet: {fileID: 10544915497925980, guid: 825e7ab822e3a544d9b3a317fa0d1650, type: 3}
-  animator: {fileID: 714444407256109301}
-  fire: {fileID: 8137719426420745328}
-  explode: {fileID: 0}
 --- !u!50 &5462108896976375261
 Rigidbody2D:
   serializedVersion: 4
@@ -9856,19 +9835,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5462108896976375260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5462108896976375234}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf9b7483caf66a04db2332d89b1bdce4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 10544915497925980, guid: 825e7ab822e3a544d9b3a317fa0d1650, type: 3}
 --- !u!60 &5462108896976375259
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9964,6 +9930,7 @@ MonoBehaviour:
   animator: {fileID: 714444407256109301}
   fire: {fileID: 8137719426420745328}
   explode: {fileID: 0}
+  eb: {fileID: 0}
   laserFirePoint: {fileID: 9155517668966932758}
   lineRenderer: {fileID: 2404294115219631020}
   startVFX: {fileID: 6968324373403595827}
