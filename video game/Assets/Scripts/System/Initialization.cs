@@ -10,5 +10,9 @@ public class Initialization : MonoBehaviour
         PlayerPersistence.GenerateSlots();
         LeaderboardManager.GenerateLeaderboard();
         AchievementsManager.GenerateAchievements();
+        if (PlayerPrefs.GetFloat("BGM") == 0 && PlayerPrefs.GetFloat("SE") == 0) {
+            PlayerPrefs.SetFloat("BGM", 1);
+            PlayerPrefs.SetFloat("SE", 1);
+        }
     }
 }

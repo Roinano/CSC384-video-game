@@ -7,9 +7,12 @@ public class EnergyBar : MonoBehaviour
 {
 
     public Slider slider;
+    private bool pause = false;
 
     public void Decay() {
-        slider.value -= 0.02f;
+        if (!pause) {
+            slider.value -= 0.05f;
+        }
     }
 
     public void ResetBar() {
@@ -19,5 +22,13 @@ public class EnergyBar : MonoBehaviour
 
     public void AddEnergy(int energy) {
         slider.value += energy;
+    }
+
+    public void StopBar() {
+        pause = true;
+    }
+    
+    public void ResumeBar() {
+        pause = false;
     }
 }

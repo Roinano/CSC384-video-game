@@ -50,7 +50,7 @@ public class FinishScore : MonoBehaviour
     }
 
     public void CheckAchievements() {
-        if (DataPassingController.playScore >= 30000) {
+        if (DataPassingController.playScore >= 10000) {
             AchievementsManager.AddAchievement(DataPassingController.playerName, "Ace");
         }
         if (Battle.bossDead) {

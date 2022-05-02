@@ -37,12 +37,14 @@ public class Boss : Enemy
 
     public Animator animator;
     public SpriteRenderer fire;
+    public SpriteRenderer explode;
     private BossHPbar bhp;
     // Start is called before the first frame update
     void Start()
     {
         bhp = GameObject.FindGameObjectWithTag("BossHPbar").GetComponent<BossHPbar>();
         toLocation1 = true;
+        explode.enabled = false;
         health = 3000;
         score = 100000;
         attackCharge = 2;
@@ -53,59 +55,61 @@ public class Boss : Enemy
 
     // Update is called once per frame
     void Update() {
-        bhp.transform.position = Vector3.MoveTowards(bhp.transform.position, new Vector3(0, 7.2f, 0), 40f * Time.deltaTime);
-        if (!doingState) {
-            currentState = readyState;
-        }
-        if (currentState != null) {
-            currentState = currentState.DoState(this);
-            doingState = true;
-        }
+        if (!Battle.bossDead) {
+            bhp.transform.position = Vector3.MoveTowards(bhp.transform.position, new Vector3(0, 7.2f, 0), 40f * Time.deltaTime);
+            if (!doingState) {
+                currentState = readyState;
+            }
+            if (currentState != null) {
+                currentState = currentState.DoState(this);
+                doingState = true;
+            }
         
-        if (toLocation1) {
-            transform.position = Vector3.MoveTowards(transform.position, location1.transform.position, 3 * Time.deltaTime);
-            if (transform.position == location1.transform.position) {
-                toLocation1 = false;
-                doingState = false;
-            }
-        } else if (toLocation2) {
-            transform.position = Vector3.MoveTowards(transform.position, location2.transform.position, 8 * Time.deltaTime);
-            if (transform.position == location2.transform.position) {
-                toLocation2 = false;
-                doingState = false;
-            }
-        } else if (toLocation3to4) {
-            GameObject target = location3;
-            float speed = 4;
-            if (transform.position == location3.transform.position) {
-                atLocation3 = true;
-                doingState = false;
-            }
-
-            if (atLocation3) {
-                target = location4;
-                speed = 0.5f;
-            }
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-            if (transform.position == location4.transform.position) {
-                toLocation3to4 = false;
-                atLocation3 = false;
-            }
-        }
-        if (rotating) {
-            if (transform.rotation.z != 0) {
-                if (transform.rotation.z < 0) {
-                    transform.Rotate(new Vector3(0, 0, 1f));
-                } else {
-                    transform.Rotate(new Vector3(0, 0, 1f));
+            if (toLocation1) {
+                transform.position = Vector3.MoveTowards(transform.position, location1.transform.position, 3 * Time.deltaTime);
+                if (transform.position == location1.transform.position) {
+                    toLocation1 = false;
+                    doingState = false;
                 }
-                
-            } else {
-                rotating = false;
+            } else if (toLocation2) {
+                transform.position = Vector3.MoveTowards(transform.position, location2.transform.position, 8 * Time.deltaTime);
+                if (transform.position == location2.transform.position) {
+                    toLocation2 = false;
+                    doingState = false;
+                }
+            } else if (toLocation3to4) {
+                GameObject target = location3;
+                float speed = 4;
+                if (transform.position == location3.transform.position) {
+                    atLocation3 = true;
+                    doingState = false;
+                }
+
+                if (atLocation3) {
+                    target = location4;
+                    speed = 0.5f;
+                }
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+                if (transform.position == location4.transform.position) {
+                    toLocation3to4 = false;
+                    atLocation3 = false;
+                }
             }
+            if (rotating) {
+                if (transform.rotation.z != 0) {
+                    if (transform.rotation.z < 0) {
+                        transform.Rotate(new Vector3(0, 0, 1f));
+                    } else {
+                        transform.Rotate(new Vector3(0, 0, 1f));
+                    }
+                
+                } else {
+                    rotating = false;
+                }
+            }
+            bhp.SetValue(health);
+            HurtCountDown();
         }
-        bhp.SetValue(health);
-        HurtCountDown();
     }
 
 
@@ -217,7 +221,7 @@ public class Boss : Enemy
 
     public void ShootLaser(float direction) {
 
-        laserFirePoint.transform.Rotate(direction * new Vector3(0, 0, 0.1f));
+        laserFirePoint.transform.Rotate(direction * new Vector3(0, 0, 0.15f));
     }
 
     public void ChangeState(BossState state) {
@@ -243,8 +247,11 @@ public class Boss : Enemy
     }
 
     IEnumerator Dead(int sceneLevel) {
+        gameObject.layer = 11;
         fire.enabled = false;
+        explode.enabled = true;
         Battle.bossDead = true;
+        DisableLaser();
         animator.SetTrigger("boss_dead");
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(2);

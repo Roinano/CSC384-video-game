@@ -39,7 +39,7 @@ public abstract class Enemy : MonoBehaviour {
                 ScoreCounter.score += (int)(this.score * Battle.streak);
             }
             if (Battle.chargable) {
-                eb.AddEnergy(25);
+                eb.AddEnergy(5);
             }
             Battle.enemyDestroyed++;
             print(Battle.enemyDestroyed);
@@ -76,7 +76,7 @@ public abstract class Enemy : MonoBehaviour {
     public void TakeLaserDamage() {
         laserTimer -= Time.deltaTime;
         if (laserTimer <= 0) {
-            health -= 0.5f;
+            health --;
             laserTimer = 0.05f;
 
             if (health <= 0) {
@@ -90,6 +90,7 @@ public abstract class Enemy : MonoBehaviour {
                 if (se) {
                     BattleSoundManager.playSound("eh");
                     se = false;
+                    ScoreCounter.score += (int)(5 * Battle.streak);
                 }
             }
         }

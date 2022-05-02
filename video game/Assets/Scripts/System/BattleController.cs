@@ -16,7 +16,7 @@ public class BattleController : MonoBehaviour
     {
         //PlayerPrefs.SetFloat("Lifes", 3f);
         //PlayerPrefs.SetFloat("Energy", 0f);
-        Battle.lifes = 1000f;
+        Battle.lifes = 5f;
         Battle.energy = 0f;
         Battle.spawnTimeCD = 2.5f;
         Battle.enemyMissed = false;

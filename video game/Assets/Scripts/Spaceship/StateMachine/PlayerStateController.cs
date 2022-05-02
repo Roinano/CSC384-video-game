@@ -21,7 +21,7 @@ public class PlayerStateController : MonoBehaviour
     private float timer = 0;
     public SpriteRenderer fire;
     public SpriteRenderer explode;
-    private EnergyBar eb;
+    public EnergyBar eb;
     private bool releaseEnergy;
 
     //Add states here
@@ -80,6 +80,7 @@ public class PlayerStateController : MonoBehaviour
             if (eb.slider.value == 50) {
                 releaseEnergy = true;
                 Battle.chargable = false;
+                Battle.blastMode = true;
                 EnableLaser();
             }
         }
@@ -102,13 +103,15 @@ public class PlayerStateController : MonoBehaviour
         if (releaseEnergy) {
             eb.Decay();
             //Battle.blastMode = true;
-            ShootLaser();
+            if (Battle.blastMode) {
+                ShootLaser();
+            }
         }
         if (eb.slider.value <= 0) {
             releaseEnergy = false;
             StateData.blastInvincible = false;
             Battle.chargable = true;
-            //Battle.blastMode = false;
+            Battle.blastMode = false;
             DisableLaser();
         }
     }

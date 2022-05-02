@@ -31,12 +31,16 @@ public class PauseGame : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gamePaused = false;
+        EnergyBar eb = GameObject.FindGameObjectWithTag("EnergyBar").GetComponent<EnergyBar>();
+        eb.ResumeBar();
     }
 
     public void Pause() {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gamePaused = true;
+        EnergyBar eb = GameObject.FindGameObjectWithTag("EnergyBar").GetComponent<EnergyBar>();
+        eb.StopBar();
     }
 
     public void ToMainMenu() {

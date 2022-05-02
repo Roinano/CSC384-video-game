@@ -23,6 +23,10 @@ public class PlayerDeadState : PlayerState {
             player.StartCoroutine(checkLife(SceneManager.GetActiveScene().buildIndex + 1, player));
         } else {
             player.animator.SetBool("Dead", true);
+            Battle.streak = 1;
+            if (!Battle.chargable) {
+                player.eb.ResetBar();
+            }
             player.DestroyAfterAnimation(player.animator.GetCurrentAnimatorStateInfo(0).length);
         }
     }

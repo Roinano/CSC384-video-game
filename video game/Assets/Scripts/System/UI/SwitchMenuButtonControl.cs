@@ -12,6 +12,7 @@ public class SwitchMenuButtonControl : MonoBehaviour
     public GameObject leaderboard;
     public GameObject achievement;
     public GameObject trophyDetail;
+    public GameObject howToPlay;
 
     private void Start() {
         print(Application.persistentDataPath);
@@ -49,6 +50,11 @@ public class SwitchMenuButtonControl : MonoBehaviour
         Application.Quit();
     }
 
+    public void main_htp() {
+        mainMenu.SetActive(false);
+        howToPlay.SetActive(true);
+    }
+
     public void delete_back() {
         deleteMenu.SetActive(false);
     }
@@ -77,5 +83,10 @@ public class SwitchMenuButtonControl : MonoBehaviour
     }
     public void trophyDetail_back() {
         trophyDetail.SetActive(false);
+    }
+
+    public void htp_main() {
+        howToPlay.SetActive(false);
+        mainMenu.SetActive(true);
     }
 }

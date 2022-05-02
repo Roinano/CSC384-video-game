@@ -23,7 +23,7 @@ public class Achievements
     }
 
     public void AchievementCondition() {
-        this.aceCondition = "Gained more than 30000 score in one game";
+        this.aceCondition = "Gained more than 10000 score in one game";
         this.terminatorCondition = "Defeated a boss";
         this.beyondTheLightCondition = "Defeated a boss and did not die in one game";
     }

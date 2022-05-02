@@ -29735,6 +29735,7 @@ MonoBehaviour:
   rotating: 0
   animator: {fileID: 34864587207391139}
   fire: {fileID: 2558241336416379032}
+  explode: {fileID: 2337709472911673253}
 --- !u!50 &6670694816522470923
 Rigidbody2D:
   serializedVersion: 4
