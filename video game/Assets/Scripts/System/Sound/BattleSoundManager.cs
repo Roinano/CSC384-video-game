@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class BattleSoundManager : MonoBehaviour {
-    public static AudioClip playerShoot, playerDead, enemyDead, enemyHurt, powerUp;
+    public static AudioClip playerShoot, playerDead, enemyDead, enemyHurt, powerUp, blastMode;
     private static AudioSource audioSrc;
 
     void Start() {
@@ -10,6 +10,7 @@ public class BattleSoundManager : MonoBehaviour {
         enemyHurt = Resources.Load<AudioClip>("EnemyHurt");
         enemyDead = Resources.Load<AudioClip>("EnemyDead");
         powerUp = Resources.Load<AudioClip>("PowerUp");
+        blastMode = Resources.Load<AudioClip>("BlastMode");
 
         audioSrc = GetComponent<AudioSource>();
         
@@ -33,6 +34,9 @@ public class BattleSoundManager : MonoBehaviour {
                 break;
             case "pu":
                 audioSrc.PlayOneShot(powerUp);
+                break;
+            case "bm":
+                audioSrc.PlayOneShot(blastMode);
                 break;
         }
     }

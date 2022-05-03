@@ -69,6 +69,7 @@ public class PlayerStateController : MonoBehaviour {
                 Battle.chargable = false;
                 Battle.blastMode = true;
                 EnableLaser();
+                BattleSoundManager.playSound("bm");
             }
         }
         if (Input.GetKeyDown(KeyCode.E)) {
@@ -77,6 +78,7 @@ public class PlayerStateController : MonoBehaviour {
                 StateData.invincible = true;
                 StateData.blastInvincible = true;
                 Battle.chargable = false;
+                BattleSoundManager.playSound("bm");
             }
         }
         BlastMode();
