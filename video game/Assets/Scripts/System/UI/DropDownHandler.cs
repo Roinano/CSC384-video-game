@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class DropDownHandler : MonoBehaviour {
     public Text NameBox;
@@ -12,6 +13,7 @@ public class DropDownHandler : MonoBehaviour {
     public Dropdown dropdown;
     public Text warning;
     public Button db;
+    public Animator animator;
 
     void Awake() {
         dropdown = transform.GetComponent<Dropdown>();
@@ -45,7 +47,7 @@ public class DropDownHandler : MonoBehaviour {
         if (dropdown.value == 0) {
             warning.GetComponent<Text>().text = "Please select or create a player profile!!";
         } else {
-            SceneManager.LoadScene(1);
+            StartCoroutine(ChangeScene());
         }
     }
 
@@ -87,5 +89,11 @@ public class DropDownHandler : MonoBehaviour {
 
     public string getNameSelected() {
         return nameSelected;
+    }
+
+    IEnumerator ChangeScene() {
+        animator.SetTrigger("SelectSwitch");
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(1);
     }
 }

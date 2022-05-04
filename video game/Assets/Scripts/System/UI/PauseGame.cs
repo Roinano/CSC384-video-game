@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour {
     public static bool gamePaused;
     public GameObject pauseMenuUI;
+    public Animator animator;
 
     void Start() {
         gamePaused = false;
@@ -37,6 +39,12 @@ public class PauseGame : MonoBehaviour {
 
     public void ToMainMenu() {
         Time.timeScale = 1f;
+        StartCoroutine(ChangeScene());
+    }
+
+    IEnumerator ChangeScene() {
+        animator.SetTrigger("BattleFinish");
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(0);
     }
 

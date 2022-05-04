@@ -250,6 +250,6 @@ public class Boss : Enemy {
         DisableLaser();
         animator.SetTrigger("boss_dead");
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(2);
+        GameObject.Find("Lifes").GetComponent<BattleController>().ChangeScene();
     }
 }

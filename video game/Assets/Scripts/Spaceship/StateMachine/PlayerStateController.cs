@@ -27,7 +27,6 @@ public class PlayerStateController : MonoBehaviour {
     public GameObject endVFX;
     public List<ParticleSystem> particles;
 
-
     private void Awake() {
         gameObject.layer = 7;
     }

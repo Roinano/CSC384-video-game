@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SwitchMenuButtonControl : MonoBehaviour {
@@ -11,14 +12,26 @@ public class SwitchMenuButtonControl : MonoBehaviour {
     public GameObject trophyDetail;
     public GameObject howToPlay;
 
+    public Animator mainAnimator;
+    public Animator createAnimator;
+    public Animator selectAnimator;
+    public Animator settingAnimator;
+    public Animator achievementAnimator;
+    public Animator leaderboardAnimator;
+
+    private string mainTrigger = "MainSwitch";
+    private string createTrigger = "CreateSwitch";
+    private string selectTrigger = "SelectSwitch";
+    private string settingTrigger = "SettingSwitch";
+    private string achievementTrigger = "AchievementSwitch";
+    private string leaderboardTrigger = "LeaderboardSwitch";
+
     public void select_back() {
-        selectMenu.SetActive(false);
-        mainMenu.SetActive(true);
+        StartCoroutine(ChangeScene(selectAnimator, selectTrigger, mainMenu, selectMenu));
     }
 
     public void select_create() {
-        selectMenu.SetActive(false);
-        createMenu.SetActive(true);
+        StartCoroutine(ChangeScene(selectAnimator, selectTrigger, createMenu, selectMenu));
     }
     
     public void select_delete() {
@@ -26,18 +39,15 @@ public class SwitchMenuButtonControl : MonoBehaviour {
     }
 
     public void create_back() {
-        createMenu.SetActive(false);
-        selectMenu.SetActive(true);
+        StartCoroutine(ChangeScene(createAnimator, createTrigger, selectMenu, createMenu));
     }
 
     public void main_play() {
-        mainMenu.SetActive(false);
-        selectMenu.SetActive(true);
+        StartCoroutine(ChangeScene(mainAnimator, mainTrigger, selectMenu, mainMenu));
     }
     
     public void main_setting() {
-        mainMenu.SetActive(false);
-        settingMenu.SetActive(true);
+        StartCoroutine(ChangeScene(mainAnimator, mainTrigger, settingMenu, mainMenu));
     }
 
     public void main_quit() {
@@ -45,7 +55,6 @@ public class SwitchMenuButtonControl : MonoBehaviour {
     }
 
     public void main_htp() {
-        mainMenu.SetActive(false);
         howToPlay.SetActive(true);
     }
 
@@ -54,26 +63,22 @@ public class SwitchMenuButtonControl : MonoBehaviour {
     }
 
     public void setting_back() {
-        settingMenu.SetActive(false);
-        mainMenu.SetActive(true);
+        StartCoroutine(ChangeScene(settingAnimator, settingTrigger, mainMenu,  settingMenu));
     }
 
     public void toLeaderboard() {
-        mainMenu.SetActive(false);
-        leaderboard.SetActive(true);
+        StartCoroutine(ChangeScene(mainAnimator, mainTrigger, leaderboard, mainMenu));
     }
 
     public void board_main() {
-        leaderboard.SetActive(false);
-        mainMenu.SetActive(true);
+        StartCoroutine(ChangeScene(leaderboardAnimator, leaderboardTrigger, mainMenu, leaderboard));
     }
+
     public void main_achievement() {
-        mainMenu.SetActive(false);
-        achievement.SetActive(true);
+        StartCoroutine(ChangeScene(mainAnimator, mainTrigger, achievement, mainMenu));
     }
     public void achievement_main() {
-        achievement.SetActive(false);
-        mainMenu.SetActive(true);
+        StartCoroutine(ChangeScene(achievementAnimator, achievementTrigger, mainMenu, achievement));
     }
     public void trophyDetail_back() {
         trophyDetail.SetActive(false);
@@ -81,6 +86,12 @@ public class SwitchMenuButtonControl : MonoBehaviour {
 
     public void htp_main() {
         howToPlay.SetActive(false);
-        mainMenu.SetActive(true);
+    }
+
+    IEnumerator ChangeScene(Animator animator, string trigger, GameObject targetMenu, GameObject originalMenu) {
+        animator.SetTrigger(trigger);
+        yield return new WaitForSeconds(0.5f);
+        originalMenu.SetActive(false);
+        targetMenu.SetActive(true);
     }
 }

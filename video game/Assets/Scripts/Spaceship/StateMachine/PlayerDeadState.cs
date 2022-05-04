@@ -34,6 +34,6 @@ public class PlayerDeadState : PlayerState {
     IEnumerator checkLife(int sceneLevel, PlayerStateController player) {
         player.animator.SetTrigger("Dead");
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(2);
+        GameObject.Find("Lifes").GetComponent<BattleController>().ChangeScene();
     }
 }

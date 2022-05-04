@@ -1,8 +1,11 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour {
     public Text numLifes;
+    public Animator animator;
     private EnergyBar eb;
     private BossHPbar bhp;
     private bool streakUp;
@@ -46,5 +49,15 @@ public class BattleController : MonoBehaviour {
 
     void Update() {
         UpdateLife();
+    }
+
+    public void ChangeScene() {
+        StartCoroutine(WaitScene());
+    }
+
+    IEnumerator WaitScene() {
+        animator.SetTrigger("BattleFinish");
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(2);
     }
 }
