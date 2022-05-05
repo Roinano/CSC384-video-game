@@ -7,7 +7,7 @@ public class EnergyBar : MonoBehaviour {
 
     public void Decay() {
         if (!pause) {
-            slider.value -= 0.05f;
+            slider.value -= 7f * Time.deltaTime;
         }
     }
 

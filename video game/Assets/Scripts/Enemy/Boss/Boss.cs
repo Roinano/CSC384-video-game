@@ -218,7 +218,7 @@ public class Boss : Enemy {
 
     public void ShootLaser(float direction) {
 
-        laserFirePoint.transform.Rotate(direction * new Vector3(0, 0, 0.15f));
+        laserFirePoint.transform.Rotate(direction * new Vector3(0, 0, 30f) * Time.deltaTime);
     }
 
     public void ChangeState(BossState state) {
