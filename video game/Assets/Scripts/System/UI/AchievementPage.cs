@@ -112,7 +112,7 @@ public class AchievementPage : MonoBehaviour {
         dialogue.SetActive(true);
         if (achievement != null) {
             if (achievement.beyondTheLight) {
-                achievementDetail.text = AchievementsManager.Load().aceCondition;
+                achievementDetail.text = AchievementsManager.Load().beyondTheLightCondition;
             } else {
                 achievementDetail.text = "???????";
             }
